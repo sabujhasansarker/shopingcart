@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const setLocalStorage = (key: string, value: Array<Product>) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
@@ -29,6 +31,7 @@ export const updateCart = (state: [Product], item: Product, type: String) => {
       result = [...state, item];
     }
   }
+  toast.success("Add product in Cart");
   return result;
 };
 
@@ -39,9 +42,11 @@ export const updateWishlist = (state: [Product], item: Product) => {
   if (exitsCarts) {
     result = state.filter((state) => state.id !== item.id);
     setLocalStorage("ecomerce-wishlist", result);
+    toast.error("Remove product from wishlist");
   } else {
     result = [...state, item];
     setLocalStorage("ecomerce-wishlist", result);
+    toast.success("Add product in wishlist");
   }
   return result;
 };
