@@ -1,12 +1,17 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect } from "react";
 import { connect } from "react-redux";
 import Logo from "../../logo.png";
+import { getCarts } from "../../redux/actions/cart";
 
 interface Props {
   carts: [Product];
+  getCarts: Function;
 }
 
-function Nav({ carts }: Props): ReactElement {
+function Nav({ carts, getCarts }: Props): ReactElement {
+  useEffect(() => {
+    getCarts();
+  }, []);
   return (
     <header className="header">
       <div className="container d-flex align-items-center justify-content-between">
@@ -30,4 +35,4 @@ const mapStateToProps = (state: { cart: [Product] }) => ({
   carts: state.cart,
 });
 
-export default connect(mapStateToProps, {})(Nav);
+export default connect(mapStateToProps, { getCarts })(Nav);
