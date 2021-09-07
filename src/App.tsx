@@ -8,7 +8,9 @@ interface Props {}
 export default function App({}: Props): ReactElement {
   return (
     <Provider store={store}>
-      <Products />
+      <div className="container">
+        <Products />
+      </div>
     </Provider>
   );
 }
