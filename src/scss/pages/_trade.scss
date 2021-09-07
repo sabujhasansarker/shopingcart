@@ -1,0 +1,53 @@
+#trade-history {
+  tbody {
+    height: 380px;
+    @include tab-port() {
+      height: 230px;
+    }
+  }
+}
+
+.orderBook {
+  table {
+    margin-top: -20px;
+  }
+  tbody {
+    height: 260px;
+  }
+}
+#chartdiv {
+  width: 100%;
+  height: 400px;
+}
+#market-news {
+  height: 400px;
+  position: relative;
+  @include phone-land() {
+    img {
+      width: 30%;
+      margin-right: 1rem;
+      height: 100%;
+    }
+  }
+  @include custommq($max: "600px") {
+    img {
+      width: 40%;
+    }
+  }
+  @include custommq($max: "400px") {
+    img {
+      width: 100%;
+      height: unset;
+      margin-left: 0;
+    }
+  }
+}
+
+.trad-table-icon {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // border-radius: 50%;
+}

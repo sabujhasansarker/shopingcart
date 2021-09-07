@@ -1,0 +1,10 @@
+@import "./abstracts/abstracts";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "./base/base";
+@import "./layouts/layouts";
+@import "./components/components";
+@import "./pages/pages";
+
+main {
+  margin-top: 10rem;
+}

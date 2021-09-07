@@ -1,0 +1,143 @@
+.header {
+  position: fixed;
+  z-index: 2;
+  left: 0px;
+  top: 0;
+  right: 0;
+  border-bottom: 2px solid $border-color;
+  box-sizing: border-box;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  @include phone-land() {
+    margin-left: 0;
+    // padding: 1rem;
+    left: 0;
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    li:not(:first-child) {
+      padding-left: 1.25rem;
+    }
+    .notification {
+      position: relative;
+      svg {
+        height: 21px;
+      }
+      .active_icon {
+        background: $red;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        position: absolute;
+        top: 2px;
+        right: 0px;
+        border: 2px solid $white;
+      }
+      .dropdown-menu {
+        padding: 1rem;
+        width: 480px;
+        @include custommq($max: "500px") {
+          width: 271px;
+          box-sizing: content-box;
+        }
+        .panding-notification {
+          background-color: $menu-bg;
+          padding: 0.5rem;
+          border-radius: $border-radius;
+          @include custommq($max: "500px") {
+            display: block !important;
+          }
+          strong {
+            font-weight: 600;
+          }
+          .view_all {
+            @include custommq($max: "500px") {
+              text-align: center;
+              display: block;
+              margin-top: 6px;
+            }
+            color: $dark;
+            &:hover {
+              color: $primary;
+              svg {
+                fill: $primary;
+              }
+            }
+          }
+        }
+        #gg_notification {
+          height: 242px;
+          position: relative;
+        }
+        .dropdown-item {
+          border-bottom: 2px solid $border-color;
+          a {
+            color: unset;
+            align-items: center;
+            .svg-container {
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            p {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    .profile {
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .dropdown-menu {
+        padding: 0;
+        li {
+          padding-left: 0;
+        }
+        .dropdown-item {
+          padding: 0.6rem 1rem;
+        }
+      }
+      .user-header {
+        padding: 10px 20px;
+
+        img {
+          width: 60px;
+          height: 60px;
+        }
+        h5 {
+          font-size: 16px;
+        }
+        span {
+          font-size: 14px;
+          font-weight: normal;
+          color: $gray-600;
+        }
+        .user-info {
+          margin-top: 1rem;
+        }
+      }
+    }
+    .search {
+      @include phone() {
+        display: none;
+      }
+      input {
+        width: 400px;
+        @include tab-port() {
+          width: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+// Sidebar
+
+nav {
+  width: 70px;
+  top: 0;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  background-color: $menu-bg;
+  padding: 0;
+  @include phone-land() {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    bottom: 0;
+    top: unset;
+    top: unset;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-header {
+    height: 5.5rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    @include phone-land() {
+      height: unset;
+      padding: 0;
+      padding-top: 0.3rem;
+    }
+    @include custommq($max: "450px") {
+      display: none;
+    }
+    .brand-logo {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  a {
+    border-radius: $border-radius;
+    padding-bottom: 0.75rem;
+    padding-top: 0.4rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+  .sidebar {
+    height: calc(100% - 8.5rem) !important ;
+    position: relative;
+    @include phone-land() {
+      display: flex;
+      height: 100% !important;
+    }
+  }
+  ul {
+    padding: 0;
+    li {
+      padding: 1rem;
+      position: relative;
+      @include phone() {
+        padding: 1rem 0.5rem;
+      }
+      @include custommq($max: "370px") {
+        padding: 1rem 0;
+        padding-left: 0.5rem;
+      }
+      @include custommq($max: "320px") {
+        padding: 1rem 0;
+        padding-left: 0.3rem;
+      }
+      &.mm-active {
+        &::before {
+          content: "";
+          height: 34px;
+          background: $primary;
+          width: 3px;
+          position: absolute;
+          left: 0;
+          margin-top: -3px;
+          border-radius: 0 5px 5px 0;
+          @include phone-land() {
+            height: 3px;
+            width: 37px;
+            top: 4px;
+            left: 1.1rem;
+            border-radius: 0px 0px 5px 5px;
+          }
+          @include phone() {
+            left: 0.6rem;
+          }
+          @include custommq($max: "320px") {
+            left: 0.4rem;
+          }
+        }
+        a {
+          background: $active;
+          svg {
+            fill: $primary;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    @include phone-land() {
+      padding-top: 0.3rem;
+    }
+  }
+}

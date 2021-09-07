@@ -1,0 +1,11 @@
+.dropdown {
+  &-menu {
+    border: 0;
+    box-shadow: $box-shadow;
+  }
+  &-item {
+    &:active {
+      @include set-background($primary);
+    }
+  }
+}

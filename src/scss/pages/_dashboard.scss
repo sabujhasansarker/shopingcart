@@ -1,0 +1,77 @@
+@include custommq($min: "767px", $max: "851px") {
+  .overview.card {
+    height: 140px;
+    position: relative;
+    .overviewCharts {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.market-news {
+  .coin {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #marketInfo {
+    height: 269px;
+    @include custommq($min: "768px", $max: "991px") {
+      // height: auto;
+    }
+  }
+}
+.useroverview {
+  img {
+    width: 50;
+    height: 50px;
+  }
+}
+.quick-trad {
+  .nav {
+    a {
+      color: $text-muted;
+      font-weight: 500;
+    }
+    .active {
+      // border-bottom: $border-width solid $primary;
+      color: $black;
+    }
+  }
+  .form-group {
+    .svg-container {
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+  }
+}
+
+.transaction {
+  #recent-transaction {
+    height: 263px;
+  }
+}
+#recent-activity {
+  height: 263px;
+  @include tab-port() {
+    height: 362px;
+  }
+}
+
+#announcement {
+  height: 338px;
+  @include phone() {
+    .border-end {
+      border-bottom: 2px solid $border-color;
+      padding-bottom: 5px;
+      border-right: 0 !important;
+      margin-bottom: 5px;
+    }
+  }
+}

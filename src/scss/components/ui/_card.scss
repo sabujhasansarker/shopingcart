@@ -1,0 +1,23 @@
+.card {
+  margin-bottom: 15px;
+  height: calc(100% - 15px);
+  border: 0;
+  box-shadow: $box-shadow;
+  &-header {
+    background: none;
+    border-width: 0;
+    padding: 1rem;
+    padding-bottom: 0rem;
+  }
+  &-title {
+    font-size: 1.2rem;
+  }
+  &-body {
+  }
+}
+
+// .quick-trad {
+//   .card-header {
+//     border-width: $border-width;
+//   }
+// }

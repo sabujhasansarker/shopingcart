@@ -1,0 +1,178 @@
+body {
+  font-family: $font-rubik;
+  // font-family: 'Grand Hotel', cursive;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input {
+  width: 300px;
+}
+
+input {
+  font-weight: normal !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: unset;
+  &:hover {
+    color: unset;
+  }
+}
+
+main {
+  margin-left: 70px;
+  margin-top: 90px;
+  @include phone-land() {
+    margin-left: 0;
+    margin-bottom: 70px;
+  }
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: $text-muted;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  line-height: unset;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $gray-300;
+    transition: 0.4s;
+    &:before {
+      position: absolute;
+      content: "";
+      height: 13px;
+      width: 13px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+    &.round {
+      border-radius: 34px;
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+  input:checked + .slider {
+    background-color: $primary;
+  }
+  input:checked + .slider:before {
+    transform: translateX(17.5px);
+  }
+}
+
+.bg-gradient-danger-success {
+  background: linear-gradient(90deg, $danger 0%, $success 65%);
+}
+
+tbody {
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-track {
+    opacity: 0;
+    width: 5px;
+    border-radius: 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &:hover {
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb,
+    &::-webkit-scrollbar-track {
+      // background-color: #eee;
+      opacity: 0.9;
+      width: 5px;
+      border-radius: 6px;
+      right: 2px;
+      position: absolute;
+      transition: background-color 0.2s linear, width 0.2s ease-in-out;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #eee;
+    }
+  }
+}
+
+.thade-shadow {
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.05);
+  tr td {
+    border-bottom: 0;
+  }
+}
+
+.ch-table {
+  tbody {
+    overflow-y: scroll;
+    display: block;
+  }
+  td {
+    width: 100%;
+    table-layout: fixed;
+  }
+  thead,
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+}
+
+.c-pointer {
+  cursor: pointer;
+}

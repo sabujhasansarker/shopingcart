@@ -1,0 +1,67 @@
+/*
+0 - 600: Phone
+600 - 900: Tablet portrait
+900 - 1200: Tablet landscape
+1200 - 1800: Normal styles
+1800+ : Big Desktop
+1em = 16px
+The smaller device rules always should write below the bigger device rules
+Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
+*/
+
+@mixin phone {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+@mixin phone-land {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin tab-port {
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin tab-land {
+  @media only screen and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media only screen and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin big-desktop {
+  @media only screen and (min-width: 1800px) {
+    @content;
+  }
+}
+
+//don't use it untill you need this too much
+@mixin custommq($min: null, $max: null) {
+  @if ($min != null and $max != null) {
+    @media only screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+
+  @if ($min == null and $max != null) {
+    @media only screen and (max-width: $max) {
+      @content;
+    }
+  }
+
+  @if ($min != null and $max == null) {
+    @media only screen and (min-width: $min) {
+      @content;
+    }
+  }
+}

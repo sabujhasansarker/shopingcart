@@ -1,0 +1,120 @@
+@for $i from 1 through 50 {
+  .svgh-#{$i} {
+    height: #{$i}px !important;
+  }
+}
+@for $i from 100 through 500 {
+  .h-#{$i} {
+    height: #{$i}px !important;
+  }
+}
+@for $i from 1 through 300 {
+  .cw-#{$i} {
+    width: #{$i}px !important;
+  }
+}
+@for $i from 1 through 100 {
+  .cfs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+  .cmw-#{$i} {
+    min-width: #{$i}rem;
+  }
+  .ch-#{$i} {
+    height: #{$i}px;
+  }
+}
+
+@each $name, $color in $theme-colors {
+  .fill-#{$name} {
+    fill: $color !important;
+    path {
+      fill: $color !important;
+    }
+  }
+}
+
+// set text color based on bg
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// set background & text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color) !important;
+  svg,
+  path {
+    fill: set-text-color($color);
+  }
+}
+
+@each $name, $color in $theme-colors {
+  .op-#{$name} {
+    background: rgba($color, 0.2) !important;
+    background-color: rgba($color, 0.2) !important;
+  }
+  .active_ {
+    .op-#{$name} {
+      background: $white !important;
+    }
+  }
+}
+
+@each $name, $color in $theme-colors {
+  .bg-#{$name} {
+    @include set-background($color);
+  }
+  .bg-active-#{$name} {
+    color: none !important;
+    &.active_ {
+      @include set-background($color);
+    }
+    &.active {
+      @include set-background($color);
+    }
+  }
+  .bg-table-striped-#{$name} {
+    &.table-striped > tbody > tr:nth-of-type(odd) {
+      @include set-background($color);
+    }
+  }
+  .btn-#{$name} {
+    @include set-background($color);
+  }
+  .hop-#{$name} {
+    cursor: pointer;
+    &:hover {
+      background: rgba($color, 0.2);
+    }
+  }
+  .ho-#{$name} {
+    cursor: pointer;
+    &:hover {
+      @include set-background($color);
+    }
+  }
+  .checked-bg-#{$name} {
+    input:checked + .slider {
+      background-color: $color !important;
+    }
+  }
+  @for $i from 0 through 100 {
+    .bg-#{$name}-#{$i} {
+      position: relative;
+      &::after {
+        content: "";
+        background: rgba($color, 0.3);
+        position: absolute;
+        width: $i * 1%;
+        height: 100%;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
