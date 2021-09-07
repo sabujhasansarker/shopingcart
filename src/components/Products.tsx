@@ -26,7 +26,7 @@ const Products = ({ getProducts, products }: Props) => {
     <div className="row mt-5 product-masonry">
       {products &&
         products.map((product, i) => (
-          <div className="col-md-3 grid-item" key={i}>
+          <div className="col-md-4 col-lg-3 col-sm-6 grid-item" key={i}>
             <Product product={product} />
           </div>
         ))}

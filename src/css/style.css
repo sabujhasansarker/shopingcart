@@ -34842,8 +34842,28 @@ tbody:hover::-webkit-scrollbar-thumb {
   padding: 1rem 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: #fff; }
+  .header i {
+    font-size: 18px; }
+  .header .count-bandg {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    right: -6px;
+    top: -5px;
+    right: -9px;
+    z-index: 1;
+    width: 17px;
+    height: 17px;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 17px;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    border-radius: 50%;
+    text-align: center; }
   @media only screen and (max-width: 767px) {
     .header {
       margin-left: 0;
