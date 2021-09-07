@@ -1,13 +1,15 @@
 import React, { ReactElement } from "react";
 import { connect } from "react-redux";
 import { addCart } from "../redux/actions/cart";
+import { addWishList } from "../redux/actions/wishlist";
 
 interface Props {
   product: Product;
   addCart: Function;
+  addWishList: Function;
 }
 
-function Product({ product, addCart }: Props): ReactElement {
+function Product({ product, addCart, addWishList }: Props): ReactElement {
   return (
     <div className="card">
       <div className="card-header"></div>
@@ -20,7 +22,10 @@ function Product({ product, addCart }: Props): ReactElement {
           </p>
           <div className="d-flex">
             <div className="bg-primary me-2 cw-35 ch-35 rounded-circle d-flex align-items-center justify-content-center">
-              <i className="ri-heart-line"></i>
+              <i
+                className="ri-heart-line"
+                onClick={() => addWishList(product)}
+              ></i>
             </div>
             <div className="bg-primary cw-35 ch-35 rounded-circle d-flex align-items-center justify-content-center">
               <i
@@ -35,4 +40,4 @@ function Product({ product, addCart }: Props): ReactElement {
   );
 }
 
-export default connect(null, { addCart })(Product);
+export default connect(null, { addCart, addWishList })(Product);

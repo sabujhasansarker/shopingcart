@@ -31,3 +31,17 @@ export const updateCart = (state: [Product], item: Product, type: String) => {
   }
   return result;
 };
+
+export const updateWishlist = (state: [Product], item: Product) => {
+  const exitsCarts: Product | undefined =
+    state && state.find((product) => Number(product.id) === Number(item.id));
+  let result = [];
+  if (exitsCarts) {
+    result = state.filter((state) => state.id !== item.id);
+    setLocalStorage("ecomerce-wishlist", result);
+  } else {
+    result = [...state, item];
+    setLocalStorage("ecomerce-wishlist", result);
+  }
+  return result;
+};
