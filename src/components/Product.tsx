@@ -1,10 +1,13 @@
 import React, { ReactElement } from "react";
+import { connect } from "react-redux";
+import { addCart } from "../redux/actions/cart";
 
 interface Props {
   product: Product;
+  addCart: Function;
 }
 
-function Product({ product }: Props): ReactElement {
+function Product({ product, addCart }: Props): ReactElement {
   return (
     <div className="card">
       <div className="card-header"></div>
@@ -20,7 +23,10 @@ function Product({ product }: Props): ReactElement {
               <i className="ri-heart-line"></i>
             </div>
             <div className="bg-primary cw-35 ch-35 rounded-circle d-flex align-items-center justify-content-center">
-              <i className="ri-shopping-bag-line"></i>
+              <i
+                className="ri-shopping-bag-line"
+                onClick={() => addCart(product)}
+              ></i>
             </div>
           </div>
         </div>
@@ -29,4 +35,4 @@ function Product({ product }: Props): ReactElement {
   );
 }
 
-export default Product;
+export default connect(null, { addCart })(Product);

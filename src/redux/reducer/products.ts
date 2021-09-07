@@ -3,10 +3,10 @@ import { GET_PRODUCTS } from "../actions/Type";
 
 interface productState {
   products: Array<{}>;
-  product: Object;
+  product: object;
 }
 
-export const initialState: productState = {
+const initialState: productState = {
   products: [],
   product: {},
 };

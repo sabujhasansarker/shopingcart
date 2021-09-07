@@ -10,7 +10,7 @@ export default function App({}: Props): ReactElement {
   return (
     <Provider store={store}>
       <Nav />
-      <div className="container">
+      <div className="container py-5">
         <Products />
       </div>
     </Provider>

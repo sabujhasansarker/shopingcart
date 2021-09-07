@@ -5,4 +5,6 @@ type Product = {
   price: number;
   category: string;
   description: string;
+  qty: Number;
+  totalPrice: Number;
 };

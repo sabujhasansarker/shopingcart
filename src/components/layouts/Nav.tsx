@@ -1,9 +1,12 @@
 import React, { ReactElement } from "react";
+import { connect } from "react-redux";
 import Logo from "../../logo.png";
 
-interface Props {}
+interface Props {
+  carts: [Product];
+}
 
-export default function Nav({}: Props): ReactElement {
+function Nav({ carts }: Props): ReactElement {
   return (
     <header className="header">
       <div className="container d-flex align-items-center justify-content-between">
@@ -14,7 +17,7 @@ export default function Nav({}: Props): ReactElement {
             <i className="ri-heart-line"></i>
           </div>
           <div className="cart ms-3 position-relative">
-            <div className="count-bandg ">0</div>
+            <div className="count-bandg ">{carts ? carts.length : 0}</div>
             <i className="ri-shopping-bag-line"></i>
           </div>
         </div>
@@ -22,3 +25,9 @@ export default function Nav({}: Props): ReactElement {
     </header>
   );
 }
+
+const mapStateToProps = (state: { cart: [Product] }) => ({
+  carts: state.cart,
+});
+
+export default connect(mapStateToProps, {})(Nav);
