@@ -1,5 +1,6 @@
 import React, { ReactElement, useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Logo from "../../logo.png";
 import { getCarts } from "../../redux/actions/cart";
 import { getWishlist } from "../../redux/actions/wishlist";
@@ -19,16 +20,18 @@ function Nav({ carts, getCarts, wishlist, getWishlist }: Props): ReactElement {
   return (
     <header className="header">
       <div className="container d-flex align-items-center justify-content-between">
-        <img src={Logo} alt="Logo" className="cw-100" />
+        <Link to="/">
+          <img src={Logo} alt="Logo" className="cw-100" />
+        </Link>
         <div className=" d-flex align-items-center">
-          <div className="wishlist position-relative">
+          <Link to="/wishlist" className="wishlist position-relative">
             <div className="count-bandg">{wishlist.length}</div>
             <i className="ri-heart-line"></i>
-          </div>
-          <div className="cart ms-3 position-relative">
+          </Link>
+          <Link to="/carts" className="cart ms-3 position-relative">
             <div className="count-bandg ">{carts ? carts.length : 0}</div>
             <i className="ri-shopping-bag-line"></i>
-          </div>
+          </Link>
         </div>
       </div>
     </header>
