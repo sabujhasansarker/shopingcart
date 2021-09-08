@@ -50,3 +50,12 @@ export const updateWishlist = (state: [Product], item: Product) => {
   }
   return result;
 };
+
+export const totalPrice = (items: [Product]) => {
+  let total: any = 0;
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    total += item.totalPrice;
+  }
+  return total.toFixed(2);
+};
