@@ -8,3 +8,10 @@ type Product = {
   qty: Number;
   totalPrice: Number;
 };
+
+type PaymentDeatiles = {
+  paymentId?: string | undefined;
+  name?: String;
+  phone?: String;
+  email?: String;
+};
